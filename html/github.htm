@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>Github: TOP 100 Programmers of China</title>
+        <meta name="keywords" content="Yang, YangHome, zubinJiang的技术主页, zubinJiang, jiangzubin, jiangzubin的技术主页, PHP技术blog" />
+        <meta property="wb:webmaster" content="91063a3e6b61b77d" />
+	<link rel="stylesheet" href="http://typo.sofish.de/typo.css" />
+	<style>
+	   body{padding: 30px;}
+	   a{color:#07f;}
+	   
+	   #container{
+            -moz-column-count: 3;
+            -moz-column-gap: 20px;
+            -webkit-column-count: 3;
+            -webkit-column-gap: 20px;
+            column-count: 3;
+            column-gap: 20px;
+            margin-left: -0.8em;
+	   }
+	   #container li{margin-left: 3em;}
+	   
+	   .twitter-share-button{position:fixed;right:30px;top:30px;}
+	</style>
+</head>
+<body id="wrapper" class="typo">
+
+<h2><u>Github:</u> TOP 100 Programmers of China</h2>
+<p>根据 v3 版 search API 抓取出来的。没有加入任何私人算法，基于搜索结果排序而已。可以看出 Ruby 和 JavaScript 圈的人都相对比较活跃，在 100 名中占了好多。理论上<a href="https://github.com/search?q=location%3Achina&repo=&langOverride=&start_value=1&type=Users&language=" target="_blank">官方搜索</a>才是靠谱的，但 API 并不能使用这个 search 这样的结果，v3 的 user API 也没有 location 这个请求。不过从实际上来说，官方和这个搜索出来的结果的前面都还是比较一致的。- -! 比如我(<a href="https://github.com/sofish" target="_blank">github</a>)在两个版本中的排序都是 10+，官方版稍高一点点。另外，数据排序从不同的角度来说都有自己的排序，最终结果都只是一种参考。请大家以参考为目的来看。
+
+<p>想根据 API 搜索出这个排名的初衷是，给 HR 一个可以找到不错程序员的列表，顺便娱乐一下自己。</p>
+
+<ol id="container">
+    <blockquote>Loading...</blockquote>
+</ol>
+
+<p><small>Created by <a href="http://weibo.com/isofish">@sofish</a>, using Github API v3 & <a href="https://github.com/sofish/typo.css">typo.css</a></small></p>
+<a href="https://twitter.com/share" class="twitter-share-button" data-via="sofish">Twitter GFWed??</a>
+<script>
+!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
+</script>
+<script>
+~function(){
+
+    if(!document.querySelector) alert('使用这种老掉牙浏览器的人是不给看的！');
+
+    var container = document.getElementById('container'),
+        body = document.body,
+        script = document.createElement('script'),
+        users;
+
+    window.programmers = function(data){
+        users = data['data']['users'];
+    };
+    
+    script.onload = function(){
+        var html = '';
+        
+        users.forEach(function(item){
+            item['name'] = item['name'] || item['username'];
+            html += '<li id="' + item['username'] + '">@<a href="https://github.com/' + item['username'] + '">' + item['name'] + '</a>：' + item['language'] + (item['language'] ? '' : '<small>可能是一个组织“用户”</small>' + '</li>');  
+        })
+        container.innerHTML = html;
+    }
+    
+    script.src = 'https://api.github.com/legacy/user/search/China?callback=programmers';
+    body.appendChild(script);
+    
+}();
+</script>
+</body>
+</html>

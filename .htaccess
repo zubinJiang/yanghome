@@ -1,0 +1,18 @@
+RewriteEngine On
+RewriteBase /
+#RewriteRule ^(.*)list-id([0-9]+)\.html$ $1/company/search.php?sectorid2=$2
+#RewriteRule ^(.*)cominfo-([a-z0-9]+)\.html$ $1/member/index.php?uid=$2&type=cominfo
+#RewriteRule ^(.*)list-([0-9]+)-([0-9]+)\.html$ $1/plus/list.php?typeid=$2&PageNo=$3
+#RewriteCond %{HTTP_HOST} ^[a-z0-9\-]+\.lujin\.com$
+#RewriteCond %{HTTP_HOST} !^(www|bbs)\.lujin\.com$
+#RewriteRule ^/?$ /%{HTTP_HOST}
+#RewriteRule ^/([a-z0-9\-]+)\.lujin\.com/?$ /member/index.php?uid=$1 [L]
+
+#rewriterule !\.(js|ico|gif|jpg|png|css|swf)$ index.php
+#rewriterule (.*)articles/(\d+).html$ $1index.php?s=articles/view&id=$2 [nc]
+#redirectmatch (.*)articles/(\d+).html$ $1index.php?s=articles/view\&id=$2
+
+RewriteRule ^([0-9]+)\.htm$ code\.php?id=$1 [L]
+RewriteRule ^([0-9]+)p([0-9]+)\.htm$ list\.php?id=$1&page=$2 [L]
+RewriteRule ^([0-9]+)\.html$ show\.php?id=$1 [L] 
+

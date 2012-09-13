@@ -1,0 +1,102 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="shortcut icon" href="images/favicon.ico" />
+<title>My name id JiangYang. This is my personal homepage.</title>
+<meta name="keywords" content="Yang, YangHome, zubinJiang的技术主页, zubinJiang, jiangzubin, jiangzubin的技术主页, PHP技术blog" />
+<meta property="wb:webmaster" content="91063a3e6b61b77d" />
+<style>
+body{width:540px;margin:0 auto;font-size:14px;}
+#index{width:540px;height:400px;;background:url("images/body.gif") repeat;}
+.content{width:80%;height:300px;;float:left;text-align:center;}
+.daohang{width:20%;height:300px;;float:right;}
+.daohang ul li{height:30px;line-height:30px;color:#FF9900;}
+.daohang ul li a{color:red;outline:none;}
+.foot{width:540px;clear:both;color:#FFF;text-align:center;}
+.foot a{line-height:20px;outline:none;}
+</style>
+</head>
+<script LANGUAGE="JavaScript">
+function inputdata(){
+    var print = 0;
+    print = document.getElementById('print').value;
+    var arr = 'I am phper ! My name id JiangYang ! <br/> <br> <br> This is my personal homepage ! <br/> <br> <br> Hopefully we can learn together technology !';
+    var str = arr.split(' ');
+    if(str.length-1<print){
+        return false;
+    }
+    var strs = document.getElementById('content').innerHTML;
+    strs += str[print];
+    document.getElementById('content').innerHTML=strs+'&nbsp;&nbsp;'; 
+    document.getElementById('print').value = ++print;
+}
+function get(){ 
+    window.setInterval('inputdata()',250);
+    window.setInterval('showTime()',1000);
+}
+function showTime(){
+    var datetime = (new Date()).pattern("yyyy-MM-dd hh:mm:ss EEE");
+    document.getElementById('login').innerHTML=datetime; 
+}
+Date.prototype.pattern=function(fmt) {        
+    var o = {        
+    "M+" : this.getMonth()+1, //月份        
+    "d+" : this.getDate(), //日        
+    "h+" : this.getHours()%12 == 0 ? 12 : this.getHours()%12, //小时        
+    "H+" : this.getHours(), //小时        
+    "m+" : this.getMinutes(), //分        
+    "s+" : this.getSeconds(), //秒        
+    "q+" : Math.floor((this.getMonth()+3)/3), //季度        
+    "S" : this.getMilliseconds() //毫秒        
+    };        
+    var week = {        
+    "0" : "\u65e5",        
+    "1" : "\u4e00",        
+    "2" : "\u4e8c",        
+    "3" : "\u4e09",        
+    "4" : "\u56db",        
+    "5" : "\u4e94",        
+    "6" : "\u516d"       
+    };        
+    if(/(y+)/.test(fmt)){        
+        fmt=fmt.replace(RegExp.$1, (this.getFullYear()+"").substr(4 - RegExp.$1.length));        
+    }        
+    if(/(E+)/.test(fmt)){        
+        fmt=fmt.replace(RegExp.$1, ((RegExp.$1.length>1) ? (RegExp.$1.length>2 ? "\u661f\u671f" : "\u5468") : "")+week[this.getDay()+""]);        
+    }        
+    for(var k in o){        
+        if(new RegExp("("+ k +")").test(fmt)){        
+            fmt = fmt.replace(RegExp.$1, (RegExp.$1.length==1) ? (o[k]) : (("00"+ o[k]).substr((""+ o[k]).length)));        
+        }        
+    }        
+    return fmt;        
+}       
+
+</script>
+<body onload="get();">
+<input type='hidden' name='print' id='print' value='0'>
+<div id='index'>
+    <div class='login' style='color:#FFF;text-align:center;padding-top:20px;padding-let:30px;'>
+        Beijing time ：<span id='login' style='color:red;'><?php echo date("Y-m-d H:i:s 星期w"); ?></span>
+        <span style='padding-left:20px;'>Welcome to <strong style='color:red;'> , <a href='/admin/'>Yang home</a></strong></span>
+    </div> 
+    <div class='content'><div style='height:25%;'>&nbsp;</div><div id='content' style='color:red;'>&nbsp;</div></div>
+    <div class='daohang'>
+    <ul style='padding-top:20px;padding-right:10px;'>
+        <li><a href='code.php' target="_blank" title='技术中心'>技术中心</a><span></span></li>
+        <li><a href='share.php' target="_blank" title='共享中心'>共享中心</a><span></span></li>
+        <li><a href='page.php' target="_blank" title='个人主页'>个人主页</a><span></span></li>
+		<li><a href='about.php' target="_blank" title='关于我'>关于我</a><span></span></li>
+        <li><a href='photo.php' target="_blank" title='图片库'>图片库</a><span></span></li>
+        <li><a href='ad.php' target="_blank" title='资讯库'>资讯库</a><span></span></li>
+        <li><a href='bbs.php' target="_blank" title='论坛'>论坛</a><span></span></li>
+        <li><a href='/' target="_blank" title='首页'>首页</a><span></span></li>
+    </ul>
+    </div>
+    <div class='foot'>
+        <h5>My name id JiangYang. This is my personal homepag. I decide.</h5>
+        <a href='page.php' target="_blank">点击进入</a>>>>
+    </div>
+</div>
+</body>
+</html><a href='#'>

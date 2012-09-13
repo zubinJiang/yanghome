@@ -1,0 +1,12 @@
+---
+name: yanghome
+version: 1
+...
+
+handle:
+
+- rewrite: if(query_string ~ "^(so)$" && path ~ "zhaochou$") goto "/url/%1"
+
+- rewrite: if(is_dir() && path ~ "urldir/(.*)") goto "/url/$1"
+
+- rewrite: if( !is_file() && !is_dir()) goto "index.php?%{QUERY_STRING}"

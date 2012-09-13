@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>YangHome</title>
+  <meta name="keywords" content="Yang, YangHome, zubinJiang的技术主页, zubinJiang, jiangzubin, jiangzubin的技术主页, PHP技术blog" />
+  <meta property="wb:webmaster" content="91063a3e6b61b77d" />
+
+</head>
+<body>
+    <div>Backbone.js Test</div>
+    <button id="add-friend">Add Friend</button>
+    <ul id="friends-list"></ul>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
+    <script src="http://ajax.cdnjs.com/ajax/libs/underscore.js/1.1.4/underscore-min.js"></script>
+    <script src="http://ajax.cdnjs.com/ajax/libs/backbone.js/0.3.3/backbone-min.js"></script>
+</body>
+</html>
+
+
+<script>
+/*$(function(){
+    window.AppView = Backbone.View.extend({
+        el:$("body"),
+            events:{ 
+                "click #add-friend" : "showPrompt"
+            },
+            showPrompt: function(){
+                var friend_name = prompt("Who is your friend?");
+                alert(friend_name);
+
+            }
+
+    });
+
+    var appview = new AppView;
+});*/
+
+window.Friend = Backbone.Model.extend({
+    name: null
+});
+
+window.Friends = Backbone.Collection.extend({
+    initialize: function(models,option) {
+        this.bind("add",option.view.addFriendLi);   
+    }
+});
+
+window.AppView = Backbone.View.extend({
+    el:$("body"),
+                initialize: function() {
+                    this.friends = new Friends(null,{view:this});
+                },
+                    events:{ 
+                        "click #add-friend" : "showPrompt"
+                    },
+                    showPrompt: function(){
+                        var friend_name = prompt("Who is your friend?");
+                        var friend_model = new Friend({name:friend_name});
+                        this.friends.add(friend_model);
+                    },
+                        addFriendLi:function(model) {
+                            $('#friends-list').append("<li>" + model.get('name') + '</li>');
+                        }
+
+});
+
+var appview = new AppView;
+
+</script>

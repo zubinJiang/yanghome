@@ -1,0 +1,65 @@
+/**公共部分**/
+body{width:100%;margin:0 auto;text-align:center;font-size:14px;background: url("/images/body.gif") repeat;font-family: Verdana,Geneva,Arial,Helvetica,sans-serif;font-size: 13px;}
+#header ul{padding:0px;margin:0px;float:right;list-style: none outside none;}
+#header ul li{float:left;list-style: none outside none;padding:0px;margin:0px;}
+#header {
+    height: 66px;
+    width:960px;
+    margin:0 auto;
+    text-align:center;
+}
+
+#nav {
+    -moz-border-bottom-colors: none;
+    -moz-border-image: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-color: #333333 !important;
+    border-color: #333333 #666666;
+    border-left: 1px solid #666666;
+    border-right: 1px solid #666666;
+    border-style: solid;
+    border-width: 1px;
+    float: right;
+    list-style: none outside none;
+    margin-top: -1px;
+    padding: 0;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    box-shadow: 0 0 10px #111111, 0 -1px 1px rgba(255, 255, 255, 0.2) inset;
+}
+
+.navItem {
+    border-left: 1px solid #666666;
+    border-right: 1px solid #333333;
+    cursor: pointer;
+    float: left;
+    font-size: 12px;
+    height: 35px;
+    line-height: 13px;
+    margin-left: 0;
+    margin-top: 0;
+    text-align: center;
+    text-shadow: 1px -1px 0 #000000;
+}
+
+.navItem a {
+    color: #FFFFFF;
+    display: block;
+    max-width: 100px;
+    min-width: 70px;
+    padding: 9px 4px 13px;
+    text-decoration: none;
+}
+
+.navItem:hover a {
+    color: #E99A21;
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.8);
+}
+
+.navPressed, .navItem:hover {
+    background: url("/images/navOver.png") repeat-x scroll 0 -1px #555555;
+    text-shadow: 1px 1px 0 #000000;
+}
+
